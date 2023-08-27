@@ -1,0 +1,669 @@
+{
+	"info": {
+		"_postman_id": "1542b54f-7580-4777-9ead-db0a68246f0f",
+		"name": "task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27930636"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "wisam",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "wisam@hotmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{local_url}}register",
+							"host": [
+								"{{local_url}}register"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "wisam@hotmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{local_url}}login",
+							"host": [
+								"{{local_url}}login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "log out",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "6|laravel_sanctum_LsGcf0wcJKy5BkPgw4gyWix66QEiWpaB0f1zEtFX4f8d389e",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local_url}}logout",
+							"host": [
+								"{{local_url}}logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "order",
+			"item": [
+				{
+					"name": "create order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "4|laravel_sanctum_4cA9d8ljlOJgAYR37EXhJ0rAeSMynuJ9U0UqJL0q9da07e6a",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "status",
+									"value": "delivery",
+									"type": "text"
+								},
+								{
+									"key": "meal_id[0]",
+									"value": "6",
+									"type": "text"
+								},
+								{
+									"key": "quantity[0]",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "meal_id[1]",
+									"value": "7",
+									"type": "text"
+								},
+								{
+									"key": "quantity[1]",
+									"value": "3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{local_url}}order/create",
+							"host": [
+								"{{local_url}}order"
+							],
+							"path": [
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update an order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "4|laravel_sanctum_4cA9d8ljlOJgAYR37EXhJ0rAeSMynuJ9U0UqJL0q9da07e6a",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "status",
+									"value": "delivery",
+									"type": "text"
+								},
+								{
+									"key": "meal_id[0]",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "quantity[0]",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{local_url}}order/update/:id",
+							"host": [
+								"{{local_url}}order"
+							],
+							"path": [
+								"update",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user past orders",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "4|laravel_sanctum_4cA9d8ljlOJgAYR37EXhJ0rAeSMynuJ9U0UqJL0q9da07e6a",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local_url}}order/user-orders",
+							"host": [
+								"{{local_url}}order"
+							],
+							"path": [
+								"user-orders"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "review",
+			"item": [
+				{
+					"name": "create a review",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "4|laravel_sanctum_4cA9d8ljlOJgAYR37EXhJ0rAeSMynuJ9U0UqJL0q9da07e6a",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "restaurant_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "stars",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "comment",
+									"value": "good",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{local_url}}review/create",
+							"host": [
+								"{{local_url}}review"
+							],
+							"path": [
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "restaurant",
+			"item": [
+				{
+					"name": "create a restaurant",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "3|laravel_sanctum_h4XRgeqcirCK5nYiOi0pMudYcepJWB3PsChfGrTkf0336d84",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Ghazia",
+									"type": "text"
+								},
+								{
+									"key": "city_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "contact",
+									"value": "lama@hotmail.com",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "center",
+									"type": "text"
+								},
+								{
+									"key": "cuisine_type",
+									"value": "easterian",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{local_url}}restaurant/create",
+							"host": [
+								"{{local_url}}restaurant"
+							],
+							"path": [
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all restaurants",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local_url}}restaurant/all",
+							"host": [
+								"{{local_url}}restaurant"
+							],
+							"path": [
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show a restaurant by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local_url}}restaurant/show/:id",
+							"host": [
+								"{{local_url}}restaurant"
+							],
+							"path": [
+								"show",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find by cuisine type",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local_url}}restaurant/cuisine/:cuisine",
+							"host": [
+								"{{local_url}}restaurant"
+							],
+							"path": [
+								"cuisine",
+								":cuisine"
+							],
+							"variable": [
+								{
+									"key": "cuisine",
+									"value": "w"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reviews of a restaurant",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local_url}}restaurant/reviews/:id",
+							"host": [
+								"{{local_url}}restaurant"
+							],
+							"path": [
+								"reviews",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "menue",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local_url}}restaurant/menue/:id",
+							"host": [
+								"{{local_url}}restaurant"
+							],
+							"path": [
+								"menue",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "city",
+			"item": [
+				{
+					"name": "restaurants of this city",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local_url}}restaurants-of-city/:id",
+							"host": [
+								"{{local_url}}restaurants-of-city"
+							],
+							"path": [
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "assign rolles",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|laravel_sanctum_ddoA0qp5j37bwnVidg0jzi6CE2kxq11IKBPIjIWF87c8e22a",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "uuid",
+									"value": "c9ccaed5-4a4a-4ed9-a4fe-04d2aca36352",
+									"type": "text"
+								},
+								{
+									"key": "role_id[0]",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{local_url}}assign-roles",
+							"host": [
+								"{{local_url}}assign-roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update user roles",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "6|laravel_sanctum_LsGcf0wcJKy5BkPgw4gyWix66QEiWpaB0f1zEtFX4f8d389e",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "uuid",
+									"value": "375ec67f-5852-49e0-9dc0-a2317415a0ed",
+									"type": "text"
+								},
+								{
+									"key": "role_id[0]",
+									"value": "3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{local_url}}update-roles",
+							"host": [
+								"{{local_url}}update-roles"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "meal",
+			"item": [
+				{
+					"name": "create meal",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "4|laravel_sanctum_4cA9d8ljlOJgAYR37EXhJ0rAeSMynuJ9U0UqJL0q9da07e6a",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "shish",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "85",
+									"type": "text"
+								},
+								{
+									"key": "restaurant_id",
+									"value": "3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{local_url}}meal/create",
+							"host": [
+								"{{local_url}}meal"
+							],
+							"path": [
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "local_url",
+			"value": "http://127.0.0.1:8000/api/",
+			"type": "string"
+		}
+	]
+}
